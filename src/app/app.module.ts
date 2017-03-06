@@ -8,6 +8,8 @@ import { EmailComponent } from './email/email.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProtectedComponent } from './protected/protected.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { ProtectedComponent } from './protected/protected.component';
     EmailComponent,
     LoginComponent,
     SignupComponent,
-    ProtectedComponent
+    ProtectedComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routes
   ],
   providers: [],
   bootstrap: [AppComponent]
