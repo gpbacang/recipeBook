@@ -21,23 +21,32 @@ body {
     flex-direction: column;
     padding: 20px;
     box-sizing: border-box; }
-    .auth-container > div > div {
+    .auth-container > div > div:first-child {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center; }
-      .auth-container > div > div > div:first-child {
+      .auth-container > div > div:first-child > div:first-child {
         width: 100px;
         height: 1px;
         background-color: #FFC200; }
-      .auth-container > div > div > div:last-child {
+      .auth-container > div > div:first-child > div:last-child {
         width: 100px;
         height: 1px;
         background-color: #FFC200; }
-      .auth-container > div > div > i {
+      .auth-container > div > div:first-child > i {
         font-size: 50px;
         color: #FFC200;
         margin-left: 30px;
         margin-right: 30px; }
+    .auth-container > div > div:nth-child(2) {
+      color: white;
+      font-size: 90px;
+      letter-spacing: 3px;
+      margin-top: 20px;
+      font-family: "Lobster Two";
+      font-style: italic; }
+    .auth-container > div .login-container {
+      margin-top: 80px; }
 
 /*# sourceMappingURL=authentication.component.css.map */
