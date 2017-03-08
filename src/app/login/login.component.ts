@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'rb-login',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+  error: any;
 
-  constructor() { }
+  constructor(private fb: FormBuilder, private authService: AuthService) { }
 
-  ngOnInit() {
+  onLogin() {
+    this.authService.loginUser(this.loginForm.value);
+  }
+
+  ngOnInit(): any {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
 }
