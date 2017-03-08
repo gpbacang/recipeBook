@@ -71,11 +71,11 @@
   background-color: #FFC200;
   font-family: $default-font;
   font-size: 15px;
+  transition: all 0.5s;
 
 
   &[disabled]{
-    background-color: #FFC200;
-    opacity: 0.5;
+    background-color: lighten(black, 40%) !important;
   }
 }
 

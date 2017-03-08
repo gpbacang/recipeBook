@@ -1,19 +1,19 @@
 <div class="signup-container">
   <span class="error" *ngIf="error">{{ error }}</span>
-  <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+  <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
     <div class="textfield">
-      <input type="email" id="email" class="textfield__input" placeholder="Email" (ngModel)="email" name="email" required>
+      <input type="email" id="email" class="textfield__input" placeholder="Email" formControlName="email" #email>
     </div>
 
     <div class="textfield">
-      <input type="password" id="password" class="textfield__input" placeholder="Password" (ngModel)="password" name="password" required>
+      <input type="password" id="password" class="textfield__input" placeholder="Password" formControlName="password">
     </div>
 
     <div class="textfield">
-      <input type="password" id="confirm-password" class="textfield__input" placeholder="Confirm Password" (ngModel)="confirm-password" name="confirm-password" required>
+      <input type="password" id="confirm-password" class="textfield__input" placeholder="Confirm Password" formControlName="confirmPassword">
     </div>
 
-    <button type="submit" class="form-button" [disabled]=!formData.valid>Sign up</button>
+    <button type="submit" class="form-button" [disabled]=!signupForm.valid>Sign up</button>
   </form>
   <hr>
   <div>sign in</div>
