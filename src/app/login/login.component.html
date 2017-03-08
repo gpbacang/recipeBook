@@ -1,3 +1,17 @@
-<p>
-  login works!
-</p>
+<div class="signin-container">
+  <span class="error" *ngIf="error">{{ error }}</span>
+  <form #formData="ngForm" (ngSubmit)="onSubmit(formData)">
+    <div class="textfield">
+      <input type="email" id="email" class="textfield__input" placeholder="Email" (ngModel)="email" name="email" required>
+    </div>
+
+    <div class="textfield">
+      <input type="password" class="textfield__input" placeholder="Password" (ngModel)="password" name="password" required>
+    </div>
+    <button type="submit" id="login" class="form-button" [disabled]=!formData.valid>Log in</button>
+
+  </form>
+  <div>Having trouble logging in?</div>
+  <hr>
+  <button type="submit" id="signup" class="form-button" routerLink="/signup">Sign up</button>
+</div>

@@ -1,0 +1,106 @@
+@import "../../styles";
+
+.signin-container {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  & > form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: $default-font;
+  }
+}
+
+
+.textfield{
+  width: 400px;
+  margin-bottom: 30px;
+
+
+  &__label{
+    font-size: 20px;
+    color: darken(white, 15%);
+    font-weight: 300;
+  }
+
+  &__input{
+    width: 100%;
+    font-size: 20px;
+    color: darken(white, 15%);
+    font-weight: 100;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid darken(white, 70%);
+    transition: all 0.5s;
+    letter-spacing: 2px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    &:focus{
+      outline: none;
+      border-bottom: 1px solid #FFC200;
+    }
+  }
+}
+
+button:focus{
+  outline: 0;
+}
+
+.form-button{
+  width: 300px;
+  height: 40px;
+  border: none;
+  font-family: $default-font;
+  font-size: 15px;
+
+  &#login{
+    margin-top: 30px;
+    margin-bottom: 25px;
+    background-color: #FFC200;
+  }
+
+  &#signup{
+    margin-top: 30px;
+    margin-bottom: 25px;
+    color: lighten(black, 20%);
+    background-color: lighten(black, 50%);
+    text-align: center;
+  }
+
+
+  &[disabled]{
+    background-color: #FFC200;
+    opacity: 0.5;
+  }
+}
+
+hr{
+  opacity: 0.5;
+}
+
+.signin-container > div {
+  margin-top: 10px;
+  font-family: $default-font;
+  color: lighten(black, 60%);
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-weight: 100;
+  margin-bottom: 50px;
+
+  &:hover{
+    color: #FFC200;
+  }
+}
+
+hr{
+  width: 100%;
+  opacity: 0.3;
+}
