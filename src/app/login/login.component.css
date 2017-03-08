@@ -54,16 +54,10 @@ button:focus {
   .form-button#login {
     margin-top: 30px;
     margin-bottom: 25px;
-    background-color: #FFC200; }
-  .form-button#signup {
-    margin-top: 30px;
-    margin-bottom: 25px;
-    color: #333333;
-    background-color: gray;
-    text-align: center; }
-  .form-button[disabled] {
     background-color: #FFC200;
-    opacity: 0.5; }
+    transition: all 0.5s; }
+  .form-button[disabled] {
+    background-color: #666666 !important; }
 
 hr {
   opacity: 0.5; }
@@ -80,6 +74,11 @@ hr {
   margin-bottom: 50px; }
   .signin-container > div:hover {
     color: #FFC200; }
+.signin-container > div:last-child {
+  color: #FFC200;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 400; }
 
 hr {
   width: 100%;

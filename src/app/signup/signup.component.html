@@ -1,1 +1,20 @@
-<p>signup</p>
+<div class="signup-container">
+  <span class="error" *ngIf="error">{{ error }}</span>
+  <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+    <div class="textfield">
+      <input type="email" id="email" class="textfield__input" placeholder="Email" (ngModel)="email" name="email" required>
+    </div>
+
+    <div class="textfield">
+      <input type="password" id="password" class="textfield__input" placeholder="Password" (ngModel)="password" name="password" required>
+    </div>
+
+    <div class="textfield">
+      <input type="password" id="confirm-password" class="textfield__input" placeholder="Confirm Password" (ngModel)="confirm-password" name="confirm-password" required>
+    </div>
+
+    <button type="submit" class="form-button" [disabled]=!formData.valid>Sign up</button>
+  </form>
+  <hr>
+  <div>sign in</div>
+</div>

@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
+@import url("https://fonts.googleapis.com/css?family=Lobster+Two:400,400i,700,700i");
+body {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0; }
+
+.signup-container {
+  height: 500px; }
+  .signup-container > form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Lato"; }
+
+.textfield {
+  width: 400px;
+  margin-bottom: 30px; }
+  .textfield__label {
+    font-size: 20px;
+    color: #d9d9d9;
+    font-weight: 300; }
+  .textfield__input {
+    width: 100%;
+    font-size: 20px;
+    color: #d9d9d9;
+    font-weight: 100;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #4d4d4d;
+    transition: all 0.5s;
+    letter-spacing: 2px;
+    padding: 10px;
+    box-sizing: border-box; }
+    .textfield__input:focus {
+      outline: none;
+      border-bottom: 1px solid #FFC200; }
+
+.form-button {
+  width: 300px;
+  height: 40px;
+  margin-top: 30px;
+  border: none;
+  background-color: #FFC200;
+  font-family: "Lato";
+  font-size: 15px; }
+  .form-button[disabled] {
+    background-color: #FFC200;
+    opacity: 0.5; }
+
+.signup-container > div {
+  margin-top: 10px;
+  font-family: "Lato";
+  color: #FFC200;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-weight: 100;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  font-weight: 400; }
+
+hr {
+  width: 100%;
+  opacity: 0.3;
+  margin-top: 50px; }
+
+/*# sourceMappingURL=signup.component.css.map */

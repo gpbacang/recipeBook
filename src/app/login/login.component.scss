@@ -63,41 +63,43 @@ button:focus{
     margin-top: 30px;
     margin-bottom: 25px;
     background-color: #FFC200;
-  }
-
-  &#signup{
-    margin-top: 30px;
-    margin-bottom: 25px;
-    color: lighten(black, 20%);
-    background-color: lighten(black, 50%);
-    text-align: center;
+    transition: all 0.5s;
   }
 
 
   &[disabled]{
-    background-color: #FFC200;
-    opacity: 0.5;
+    // background-color: #FFC200;
+    // opacity: 0.6;
+    background-color: lighten(black, 40%) !important;
+
   }
 }
 
-hr{
-  opacity: 0.5;
-}
 
-.signin-container > div {
-  margin-top: 10px;
-  font-family: $default-font;
-  color: lighten(black, 60%);
-  font-size: 15px;
-  text-align: center;
-  letter-spacing: 1px;
-  cursor: pointer;
-  font-weight: 100;
-  margin-bottom: 50px;
+.signin-container {
+  & > div {
+    margin-top: 10px;
+    font-family: $default-font;
+    color: lighten(black, 60%);
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: 100;
+    margin-bottom: 50px;
 
-  &:hover{
+    &:hover{
+      color: #FFC200;
+    }
+  }
+
+  & > div:last-child{
     color: #FFC200;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 400;
   }
+
 }
 
 hr{

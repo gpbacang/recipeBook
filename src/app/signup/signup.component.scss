@@ -1,0 +1,103 @@
+@import '../../styles';
+
+.signup-container {
+  height: 500px;
+
+  & > form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: $default-font;
+  }
+}
+
+
+.textfield{
+  width: 400px;
+  margin-bottom: 30px;
+
+
+  &__label{
+    font-size: 20px;
+    color: darken(white, 15%);
+    font-weight: 300;
+  }
+
+  &__input{
+    width: 100%;
+    font-size: 20px;
+    color: darken(white, 15%);
+    font-weight: 100;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid darken(white, 70%);
+    transition: all 0.5s;
+    letter-spacing: 2px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    &:focus{
+      outline: none;
+      border-bottom: 1px solid #FFC200;
+    }
+  }
+}
+
+// .mdl-textfield{
+//   width: 500px;
+//
+//   &__label{
+//     font-size: 20px;
+//     color: darken(white, 15%);
+//     font-weight: 300;
+//   }
+//
+//   &__input{
+//     font-size: 20px;
+//     color: darken(white, 15%);
+//     font-weight: 100;
+//     padding: 10px 0;
+//     border-bottom: 1px solid darken(white, 70%);
+//   }
+// }
+
+.form-button{
+  width: 300px;
+  height: 40px;
+  margin-top: 30px;
+  border: none;
+  background-color: #FFC200;
+  font-family: $default-font;
+  font-size: 15px;
+
+
+  &[disabled]{
+    background-color: #FFC200;
+    opacity: 0.5;
+  }
+}
+
+.signup-container {
+  & > div {
+    margin-top: 10px;
+    font-family: $default-font;
+    color: #FFC200;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: 100;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-weight: 400;
+
+  }
+}
+
+hr{
+  width: 100%;
+  opacity: 0.3;
+  margin-top: 50px;
+}
