@@ -12,6 +12,9 @@ import { ProtectedComponent } from './protected/protected.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { routes } from './app.routes';
 import { AuthService } from "./shared/auth.service";
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { HeaderComponent } from './protected/header/header.component';
+import { RecipeListComponent } from './protected/recipe-list/recipe-list.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAqucMLcNkZTVRTMJswa2piE2xL4HFFMnU",
@@ -28,7 +31,10 @@ export const firebaseConfig = {
     LoginComponent,
     SignupComponent,
     ProtectedComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    ForgotPasswordComponent,
+    HeaderComponent,
+    RecipeListComponent
   ],
   imports: [
     BrowserModule,

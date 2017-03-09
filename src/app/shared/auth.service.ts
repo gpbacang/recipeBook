@@ -46,4 +46,18 @@ export class AuthService {
       )
   }
 
+  sendEmail(user: User) {
+    this.af.auth.resetPassword({
+      email: user.email
+    }).then(
+      (success) => {
+        console.log("Password reset email successfully!");
+      }).catch(
+        (err) => {
+          console.log(err);
+          this.error = err;
+        }
+      )
+  }
+
 }

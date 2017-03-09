@@ -6,12 +6,14 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProtectedComponent } from './protected/protected.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 export const router: Routes = [
   { path: '', component: AuthenticationComponent, children: [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'signup', component: SignupComponent }
+    { path: 'signup', component: SignupComponent },
+    { path: 'forgot-password', component: ForgotPasswordComponent }
   ]},
   { path: 'home', component: ProtectedComponent }
 ]
