@@ -14,9 +14,9 @@ export class ForgotPasswordComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private authService: AuthService) { }
 
-  onSendEmail() {
-    this.authService.sendEmail(this.forgotpwForm.value);
-  }
+  // onSendEmail() {
+  //   this.authService.sendEmail(this.forgotpwForm.value);
+  // }
 
   ngOnInit() {}
   // ngOnInit(): any {

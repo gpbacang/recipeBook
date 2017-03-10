@@ -1,5 +1,4 @@
 <div class="signin-container">
-  <span class="error" *ngIf="error">{{ error }}</span>
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
     <div class="textfield">
       <input type="email" id="email" class="textfield__input" placeholder="Email" formControlName="email">

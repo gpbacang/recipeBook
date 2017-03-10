@@ -16,7 +16,8 @@ input:-webkit-autofill:active {
 .recipe-list-container {
   width: 100%;
   padding: 70px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  display: flex; }
 
 .item-card {
   width: 320px;
@@ -28,6 +29,7 @@ input:-webkit-autofill:active {
   .item-card:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 15px 15px rgba(0, 0, 0, 0.22); }
     .item-card:hover .action-buttons {
+      top: 0;
       opacity: 1; }
 
 .card-tint {
@@ -55,5 +57,32 @@ input:-webkit-autofill:active {
     font-weight: 100;
     margin-top: 15px;
     color: #bfbfbf; }
+
+.action-buttons {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  top: -30px;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .action-buttons > .card-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: none;
+    background-color: transparent; }
+    .action-buttons > .card-button > i {
+      color: #FFC200; }
+    .action-buttons > .card-button#edit {
+      float: left; }
+    .action-buttons > .card-button#delete {
+      float: right; }
+    .action-buttons > .card-button:hover {
+      background-color: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 5px 7px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+    .action-buttons > .card-button:focus {
+      outline: none; }
 
 /*# sourceMappingURL=recipe-list.component.css.map */

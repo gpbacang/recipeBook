@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFire, AuthProviders, AuthMethods, AngularFireAuth } from 'angularfire2';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
 
 import { User } from './user.interface';
 
@@ -8,7 +12,17 @@ import { User } from './user.interface';
 export class AuthService {
   error: any;
 
-  constructor(public af: AngularFire, private router: Router) { }
+  constructor(private auth: AngularFireAuth, public af: AngularFire, private router: Router) { }
+
+  canActivate(): Observable<boolean> {
+    return Observable.from(this.auth)
+      .take(1)
+      .map(state => !!state)
+      .do(authenticated => {
+        if
+          (!authenticated) this.router.navigate(['/login']);
+      })
+  }
 
   signupUser(user: User) {
     this.af.auth.createUser({
@@ -17,7 +31,7 @@ export class AuthService {
     }).then(
       (success) => {
         console.log(success);
-        this.router.navigate(['/login'])
+        this.router.navigate(['/home'])
       }).catch(
         (err) => {
           console.log(err);
@@ -46,18 +60,8 @@ export class AuthService {
       )
   }
 
-  sendEmail(user: User) {
-    this.af.auth.resetPassword({
-      email: user.email
-    }).then(
-      (success) => {
-        console.log("Password reset email successfully!");
-      }).catch(
-        (err) => {
-          console.log(err);
-          this.error = err;
-        }
-      )
+  logout() {
+    this.af.auth.logout();
+    this.router.navigateByUrl('/login');
   }
-
 }

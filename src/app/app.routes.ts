@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProtectedComponent } from './protected/protected.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AuthService } from './shared/auth.service';
 
 export const router: Routes = [
   { path: '', component: AuthenticationComponent, children: [
@@ -15,7 +16,7 @@ export const router: Routes = [
     { path: 'signup', component: SignupComponent },
     { path: 'forgot-password', component: ForgotPasswordComponent }
   ]},
-  { path: 'home', component: ProtectedComponent }
+  { path: 'home', component: ProtectedComponent, canActivate: [AuthService] }
 ]
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

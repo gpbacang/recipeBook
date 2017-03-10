@@ -16,24 +16,53 @@ input:-webkit-autofill:active {
 header {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   font-family: "Lato";
   padding: 15px 5px 15px 5px;
   box-sizing: border-box;
   background-color: #4d4d4d; }
-  header > div:nth-child(2) {
-    width: 1px;
+  header > .app-title {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    header > .app-title > div:nth-child(2) {
+      width: 1px;
+      height: 30px;
+      background-color: #FFC200;
+      margin-left: 15px; }
+    header > .app-title > div:last-child {
+      font-size: 25px;
+      font-weight: 400;
+      color: #FFC200;
+      margin-left: 15px; }
+    header > .app-title > i {
+      color: #FFC200;
+      font-size: 30px;
+      margin-left: 30px; }
+
+.search-box {
+  width: 200px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+  border: 1px solid #FFC200; }
+  .search-box > i {
+    color: #FFC200;
+    padding: 5px;
+    box-sizing: border-box; }
+  .search-box > input {
+    width: 100%;
     height: 30px;
-    background-color: #FFC200;
-    margin-left: 15px; }
-  header > div:last-child {
-    font-size: 25px;
-    font-weight: 400;
+    font-size: 15px;
     color: #FFC200;
-    margin-left: 15px; }
-  header > i {
-    color: #FFC200;
-    font-size: 30px;
-    margin-left: 30px; }
+    font-weight: 100;
+    background: transparent;
+    border: none;
+    box-sizing: border-box; }
+    .search-box > input:focus {
+      outline: none; }
 
 /*# sourceMappingURL=header.component.css.map */
