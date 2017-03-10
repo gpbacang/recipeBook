@@ -13,17 +13,22 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
   -webkit-text-fill-color: #fff !important; }
 
-.forgotpw-container {
+.signin-container {
   height: 500px;
   display: flex;
   align-items: center;
   flex-direction: column; }
-  .forgotpw-container > form {
+  .signin-container > form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     font-family: "Lato"; }
+  .signin-container > span {
+    font-family: "Lato";
+    color: #FFC200;
+    margin-bottom: 15px;
+    font-weight: 100; }
 
 .textfield {
   width: 400px;
@@ -58,7 +63,7 @@ button:focus {
   border: none;
   font-family: "Lato";
   font-size: 15px; }
-  .form-button#send-email {
+  .form-button#login {
     margin-top: 30px;
     margin-bottom: 25px;
     background-color: #FFC200;
@@ -66,4 +71,26 @@ button:focus {
   .form-button[disabled] {
     background-color: #666666 !important; }
 
-/*# sourceMappingURL=forgot-password.component.css.map */
+.signin-container > div {
+  margin-top: 10px;
+  font-family: "Lato";
+  color: #999999;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-weight: 100;
+  margin-bottom: 50px; }
+  .signin-container > div:hover {
+    color: #FFC200; }
+.signin-container > div:last-child {
+  color: #FFC200;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 400; }
+
+hr {
+  width: 100%;
+  opacity: 0.3; }
+
+/*# sourceMappingURL=login.component.css.map */

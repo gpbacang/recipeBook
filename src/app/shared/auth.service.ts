@@ -51,11 +51,13 @@ export class AuthService {
     }).then(
       (success) => {
         console.log(success);
+        // return success;
         this.router.navigate(['/home']);
       }).catch(
         (err) => {
           console.log(err);
           this.error = err;
+          // return err;
         }
       )
   }

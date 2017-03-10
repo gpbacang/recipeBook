@@ -5,16 +5,15 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
-import { EmailComponent } from './email/email.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { SignupComponent } from './authentication/signup/signup.component';
 import { ProtectedComponent } from './protected/protected.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
-import { routes } from './app.routes';
+import { routing } from './app.routes';
 import { AuthService } from "./shared/auth.service";
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { HeaderComponent } from './protected/header/header.component';
 import { RecipeListComponent } from './protected/recipe-list/recipe-list.component';
+import { authRouting } from './authentication/authentication.routes';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAqucMLcNkZTVRTMJswa2piE2xL4HFFMnU",
@@ -27,12 +26,10 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    EmailComponent,
     LoginComponent,
     SignupComponent,
     ProtectedComponent,
     AuthenticationComponent,
-    ForgotPasswordComponent,
     HeaderComponent,
     RecipeListComponent
   ],
@@ -42,7 +39,8 @@ export const firebaseConfig = {
     ReactiveFormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    routes
+    routing,
+    authRouting
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
