@@ -27,7 +27,7 @@ input:-webkit-autofill:active {
   .signin-container > span {
     font-family: "Lato";
     color: #FFC200;
-    margin-bottom: 15px;
+    margin-bottom: 35px;
     font-weight: 100; }
 
 .textfield {
@@ -83,7 +83,7 @@ button:focus {
   margin-bottom: 50px; }
   .signin-container > div:hover {
     color: #FFC200; }
-.signin-container > div:last-child {
+.signin-container > .signup-link {
   color: #FFC200;
   font-size: 20px;
   text-transform: uppercase;

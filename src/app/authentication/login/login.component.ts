@@ -4,6 +4,7 @@ import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../shared/auth.service';
+import { User } from '../../shared/user.interface';
 
 @Component({
   selector: 'rb-login',
@@ -15,13 +16,22 @@ export class LoginComponent implements OnInit {
   error: any;
 
   constructor(private fb: FormBuilder, private authService: AuthService, public af: AngularFire, private router: Router) {
-    this.af.auth.subscribe(auth => {
-      this.router.navigateByUrl('/home');
-    })
+    // this.af.auth.subscribe(auth => {
+    //   this.router.navigateByUrl('');
+    // })
   }
 
   onLogin() {
-    this.authService.loginUser(this.loginForm.value);
+    this.authService.loginUser(this.loginForm.value)
+    .then(
+      (success) => {
+        console.log(success);
+        this.router.navigate(['']);
+      }).catch(
+        (err) => {
+          this.error = err;
+        }
+      )
   }
 
   ngOnInit(): any {

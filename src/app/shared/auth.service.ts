@@ -41,25 +41,14 @@ export class AuthService {
   }
 
   loginUser(user: User) {
-    this.af.auth.login({
+    return this.af.auth.login({
       email: user.email,
       password: user.password
     },
     {
       provider: AuthProviders.Password,
       method: AuthMethods.Password
-    }).then(
-      (success) => {
-        console.log(success);
-        // return success;
-        this.router.navigate(['/home']);
-      }).catch(
-        (err) => {
-          console.log(err);
-          this.error = err;
-          // return err;
-        }
-      )
+    })
   }
 
   logout() {
