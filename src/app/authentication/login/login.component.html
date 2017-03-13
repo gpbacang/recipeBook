@@ -16,8 +16,8 @@
     </button>
 
   </form>
-  <div routerLink="/forgot-password">Having trouble logging in?</div>
-  <hr>
+  <div routerLink="/password-reset">Having trouble logging in?</div>
+  <!-- <hr> -->
   <div class="signup-link" routerLink="/signup">Sign up</div>
-  <span class="error" *ngIf="error">{{ errorMessage }}</span>
+  <div class="error" *ngIf="error" [@showError]="state">{{ errorMessage }}</div>
 </div>

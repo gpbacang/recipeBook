@@ -1,31 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFire, AuthProviders, AuthMethods, AngularFireAuth } from 'angularfire2';
-import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/take';
+import { Subject, Observable } from 'rxjs/Rx';
 
 import { User } from './user.interface';
+
+declare var firebase: any;
 
 @Injectable()
 export class AuthService {
   error: any;
 
-  constructor(private auth: AngularFireAuth, public af: AngularFire, private router: Router) { }
-
-  canActivate(): Observable<boolean> {
-    return Observable.from(this.auth)
-      .take(1)
-      .map(state => !!state)
-      .do(authenticated => {
-        if
-          (!authenticated) this.router.navigate(['/login']);
-      })
-  }
+  constructor(private router: Router) { }
 
   signupUser(user: User) {
-    this.af.auth.createUser({
+    firebase.auth().createUserWithEmailAndPassword({
       email: user.email,
       password: user.password
     }).then(
@@ -41,18 +29,27 @@ export class AuthService {
   }
 
   loginUser(user: User) {
-    return this.af.auth.login({
-      email: user.email,
-      password: user.password
-    },
-    {
-      provider: AuthProviders.Password,
-      method: AuthMethods.Password
-    })
+    return firebase.auth().signInWithEmailAndPassword(user.email, user.password);
+  }
+
+  isAuthenticated(): Observable<boolean> {
+    const subject = new Subject<boolean>();
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        subject.next(true);
+      } else {
+        subject.next(false);
+      }
+    });
+    return subject.asObservable();
+  }
+
+  passwordReset(user: User) {
+    return firebase.auth().sendPasswordResetEmail(user.email);
   }
 
   logout() {
-    this.af.auth.logout();
+    firebase.auth().signOut();
     this.router.navigateByUrl('/login');
   }
 }
