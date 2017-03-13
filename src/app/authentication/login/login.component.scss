@@ -71,6 +71,31 @@ button:focus{
     margin-bottom: 25px;
     background-color: #FFC200;
     transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > div:first-child{
+      width: 100%;
+      height: 100%;
+    }
+
+    & > div:last-child{
+      width: 30px;
+      height: 30px;
+
+
+
+      & > img {
+        width: 100%;
+        height: 100%;
+      }
+
+      & > i{
+        color: #666666;
+        font-size: 30px;
+      }
+    }
   }
 
 

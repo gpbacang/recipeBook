@@ -13,31 +13,39 @@ import { User } from '../../shared/user.interface';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  error: any;
+  error = false;
+  errorMessage: any;
+  loginStatus = "";
 
-  constructor(private fb: FormBuilder, private authService: AuthService, public af: AngularFire, private router: Router) {
-    // this.af.auth.subscribe(auth => {
-    //   this.router.navigateByUrl('');
-    // })
-  }
+  constructor(private fb: FormBuilder, private authService: AuthService, public af: AngularFire, private router: Router) {}
 
   onLogin() {
+    this.loginStatus = "loading";
     this.authService.loginUser(this.loginForm.value)
     .then(
       (success) => {
         console.log(success);
-        this.router.navigate(['']);
+        this.loginStatus = "authenticated";
+        setTimeout(() => {
+          this.router.navigate(['']);
+        }, 1000);
       }).catch(
         (err) => {
-          this.error = err;
+          this.error = true;
+          this.errorMessage = err;
+          this.loginStatus = "initial";
         }
       )
   }
 
   ngOnInit(): any {
+    this.loginStatus = "initial";
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
+    });
+    this.loginForm.valueChanges.subscribe(value => {
+      this.error = false;
     });
   }
 

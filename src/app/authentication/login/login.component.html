@@ -7,11 +7,17 @@
     <div class="textfield">
       <input type="password" class="textfield__input" placeholder="Password" formControlName="password">
     </div>
-    <button type="submit" id="login" class="form-button" [disabled]=!loginForm.valid>Log in</button>
+    <button type="submit" id="login" class="form-button" [disabled]="!loginForm.valid">
+      <div *ngIf="loginStatus == 'initial'">Log in</div>
+      <div>
+        <img *ngIf="loginStatus == 'loading'" src="../../assets/ring.gif" alt="">
+        <i *ngIf="loginStatus == 'authenticated'" class="material-icons">check</i>
+      </div>
+    </button>
 
   </form>
   <div routerLink="/forgot-password">Having trouble logging in?</div>
   <hr>
   <div class="signup-link" routerLink="/signup">Sign up</div>
-  <span class="error" *ngIf="error">{{ error }}</span>
+  <span class="error" *ngIf="error">{{ errorMessage }}</span>
 </div>
