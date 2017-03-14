@@ -7,10 +7,10 @@
         class="textfield__input"
         placeholder="Email"
         formControlName="email"
-        required
         name="email">
-      <div class="error" *ngIf="signupForm.get('email').hasError('required') && signupForm.get('email').touched">Email is required.</div>
-      <div class="error" *ngIf="signupForm.get('email').hasError('noEmail') && !signupForm.get('email').hasError('required') && signupForm.get('email').touched">Invalid email.</div>
+      <!-- <div class="error" *ngIf="signupForm.get('email').hasError('required') && signupForm.get('email').touched">Email is required.</div> -->
+      <div class="error" *ngIf="signupForm.controls.email.touched && signupForm.controls.email.hasError('required')">Email is required.</div>
+      <div class="error" *ngIf="signupForm.controls.email.hasError('noEmail') && !signupForm.controls.email.hasError('required')">Invalid email.</div>
     </div>
 
     <div class="textfield">
@@ -21,7 +21,7 @@
         placeholder="Password"
         formControlName="password"
         name="password">
-        <div class="error" *ngIf="signupForm.get('password').hasError('required') && signupForm.get('password').touched">Password is required.</div>
+        <div class="error" *ngIf="signupForm.controls.password.hasError('required') && signupForm.controls.password.touched">Password is required.</div>
     </div>
 
     <div class="textfield">
@@ -31,7 +31,7 @@
         class="textfield__input"
         placeholder="Confirm Password" formControlName="confirmPassword"
         name="confirmPassword">
-      <div class="error" *ngIf="signupForm.get('confirmPassword').touched && signupForm.get('confirmPassword').hasError('passwordsNotMatch')">Password doesn't match.</div>
+      <div class="error" *ngIf="signupForm.controls.confirmPassword.touched && signupForm.controls.confirmPassword.hasError('passwordsNotMatch')">Password doesn't match.</div>
     </div>
 
     <button type="submit" class="form-button" id="signup" [disabled]=!signupForm.valid>
