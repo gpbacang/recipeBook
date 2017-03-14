@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../shared/auth.service';
-import { User } from '../../shared/user.interface';
 import { showError } from '../authentication.animations';
 
 // declare var firebase: any;
@@ -35,7 +34,7 @@ export class LoginComponent implements OnInit {
         // console.log(success);
         this.loginStatus = "authenticated";
         setTimeout(() => {
-          this.router.navigate(['']);
+          this.router.navigate(['home']);
         }, 1000);
       }).catch(
         (err) => {

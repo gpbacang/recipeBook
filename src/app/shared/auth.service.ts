@@ -13,19 +13,7 @@ export class AuthService {
   constructor(private router: Router) { }
 
   signupUser(user: User) {
-    firebase.auth().createUserWithEmailAndPassword({
-      email: user.email,
-      password: user.password
-    }).then(
-      (success) => {
-        console.log(success);
-        this.router.navigate(['/home'])
-      }).catch(
-        (err) => {
-          console.log(err);
-          this.error = err;
-        }
-      )
+    return firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
   }
 
   loginUser(user: User) {

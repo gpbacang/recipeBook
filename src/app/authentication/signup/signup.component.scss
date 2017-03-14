@@ -1,4 +1,4 @@
-@import '../../styles';
+@import '../../../styles';
 
 .signup-container {
   height: 500px;
@@ -10,12 +10,27 @@
     flex-direction: column;
     font-family: $default-font;
   }
+
+  & > .signup-error{
+    font-family: $default-font;
+    color: $accent-color;
+    margin-bottom: 35px;
+    font-weight: 100;
+    text-align: center;
+  }
 }
 
 
 .textfield{
   width: 400px;
+  height: 50px;
   margin-bottom: 30px;
+
+
+  & > .error {
+    color: tomato;
+    font-weight: 100;
+  }
 
 
   &__label{
@@ -63,24 +78,60 @@
 //   }
 // }
 
+button:focus{
+  outline: 0;
+}
+
 .form-button{
   width: 300px;
   height: 40px;
-  margin-top: 30px;
   border: none;
-  background-color: #FFC200;
   font-family: $default-font;
   font-size: 15px;
-  transition: all 0.5s;
+
+  &#signup{
+    margin-top: 30px;
+    margin-bottom: 25px;
+    background-color: #FFC200;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > div:first-child{
+      width: 100%;
+      height: 100%;
+    }
+
+    & > div:last-child{
+      width: 30px;
+      height: 30px;
+
+
+
+      & > img {
+        width: 100%;
+        height: 100%;
+      }
+
+      & > i{
+        color: #666666;
+        font-size: 30px;
+      }
+    }
+  }
 
 
   &[disabled]{
+    // background-color: #FFC200;
+    // opacity: 0.6;
     background-color: lighten(black, 40%) !important;
+
   }
 }
 
 .signup-container {
-  & > div {
+  & > div:nth-child(2) {
     margin-top: 10px;
     font-family: $default-font;
     color: #FFC200;

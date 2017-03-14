@@ -3,23 +3,56 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { AuthService } from '../../shared/auth.service';
+import { showError } from '../authentication.animations';
 
 @Component({
   selector: 'rb-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
+  animations: [showError()]
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  error: any;
+  error = false;
+  errorMessage: any;
+  signupStatus = "";
+  state: string = "";
 
-  constructor(private router: Router, private fb: FormBuilder, private authService: AuthService) { }
+  constructor(private router: Router, private fb: FormBuilder, private authService: AuthService) {
+  }
 
   onSignup() {
-    this.authService.signupUser(this.signupForm.value);
+    this.signupStatus = "loading";
+    this.authService.signupUser(this.signupForm.value)
+    .then(
+      (success) => {
+        console.log(success);
+        this.signupStatus = "signedUp";
+        setTimeout(() => {
+          this.router.navigate(['/home'])
+        }, 1000);
+      }).catch(
+        (err) => {
+          console.log(err);
+          var errorCode = err.code;
+          this.error = true;
+          this.signupStatus = "initial";
+
+          if (errorCode == 'auth/email-already-in-use') {
+            this.errorMessage = "Email is already in use.";
+          }
+          else if (errorCode == 'auth/invalid-email') {
+            this.errorMessage = "Invalid email.";
+          }
+          else if (errorCode == 'auth/weak-password') {
+            this.errorMessage = "Weak password.";
+          }
+        }
+      )
   }
 
   ngOnInit(): any {
+    this.signupStatus = "initial";
     this.signupForm = this.fb.group({
       email: ['', Validators.compose([
         Validators.required,

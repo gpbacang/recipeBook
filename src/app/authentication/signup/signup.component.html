@@ -1,20 +1,47 @@
 <div class="signup-container">
-  <span class="error" *ngIf="error">{{ error }}</span>
   <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
     <div class="textfield">
-      <input type="email" id="email" class="textfield__input" placeholder="Email" formControlName="email" #email>
+      <input
+        type="email"
+        id="email"
+        class="textfield__input"
+        placeholder="Email"
+        formControlName="email"
+        required
+        name="email">
+      <div class="error" *ngIf="signupForm.get('email').hasError('required') && signupForm.get('email').touched">Email is required.</div>
+      <div class="error" *ngIf="signupForm.get('email').hasError('noEmail') && !signupForm.get('email').hasError('required') && signupForm.get('email').touched">Invalid email.</div>
     </div>
 
     <div class="textfield">
-      <input type="password" id="password" class="textfield__input" placeholder="Password" formControlName="password">
+      <input
+        type="password"
+        id="password"
+        class="textfield__input"
+        placeholder="Password"
+        formControlName="password"
+        name="password">
+        <div class="error" *ngIf="signupForm.get('password').hasError('required') && signupForm.get('password').touched">Password is required.</div>
     </div>
 
     <div class="textfield">
-      <input type="password" id="confirm-password" class="textfield__input" placeholder="Confirm Password" formControlName="confirmPassword">
+      <input
+        type="password"
+        id="confirm-password"
+        class="textfield__input"
+        placeholder="Confirm Password" formControlName="confirmPassword"
+        name="confirmPassword">
+      <div class="error" *ngIf="signupForm.get('confirmPassword').touched && signupForm.get('confirmPassword').hasError('passwordsNotMatch')">Password doesn't match.</div>
     </div>
 
-    <button type="submit" class="form-button" [disabled]=!signupForm.valid>Sign up</button>
+    <button type="submit" class="form-button" id="signup" [disabled]=!signupForm.valid>
+      <div *ngIf="signupStatus == 'initial'">Sign up</div>
+      <div>
+        <img *ngIf="signupStatus == 'loading'" src="../../assets/ring.gif" alt="">
+        <i *ngIf="signupStatus == 'signedUp'" class="material-icons">check</i>
+      </div>
+    </button>
   </form>
-  <hr>
   <div routerLink="/login">log in</div>
+  <div class="signup-error" *ngIf="error" [@showError]="state">{{ errorMessage }}</div>
 </div>

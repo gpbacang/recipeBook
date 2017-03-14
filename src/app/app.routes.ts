@@ -9,7 +9,7 @@ import { AuthGuard } from './shared/auth.guard';
 
 export const APP_ROUTES: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '', component: ProtectedComponent, canActivate: [AuthGuard] }
+  { path: 'home', component: ProtectedComponent, canActivate: [AuthGuard] }
 ]
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

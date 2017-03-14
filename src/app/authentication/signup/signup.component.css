@@ -21,10 +21,20 @@ input:-webkit-autofill:active {
     justify-content: center;
     flex-direction: column;
     font-family: "Lato"; }
+  .signup-container > .signup-error {
+    font-family: "Lato";
+    color: #FFC200;
+    margin-bottom: 35px;
+    font-weight: 100;
+    text-align: center; }
 
 .textfield {
   width: 400px;
+  height: 50px;
   margin-bottom: 30px; }
+  .textfield > .error {
+    color: tomato;
+    font-weight: 100; }
   .textfield__label {
     font-size: 20px;
     color: #d9d9d9;
@@ -46,19 +56,39 @@ input:-webkit-autofill:active {
       outline: none;
       border-bottom: 1px solid #FFC200; }
 
+button:focus {
+  outline: 0; }
+
 .form-button {
   width: 300px;
   height: 40px;
-  margin-top: 30px;
   border: none;
-  background-color: #FFC200;
   font-family: "Lato";
-  font-size: 15px;
-  transition: all 0.5s; }
+  font-size: 15px; }
+  .form-button#signup {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    background-color: #FFC200;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .form-button#signup > div:first-child {
+      width: 100%;
+      height: 100%; }
+    .form-button#signup > div:last-child {
+      width: 30px;
+      height: 30px; }
+      .form-button#signup > div:last-child > img {
+        width: 100%;
+        height: 100%; }
+      .form-button#signup > div:last-child > i {
+        color: #666666;
+        font-size: 30px; }
   .form-button[disabled] {
     background-color: #666666 !important; }
 
-.signup-container > div {
+.signup-container > div:nth-child(2) {
   margin-top: 10px;
   font-family: "Lato";
   color: #FFC200;
