@@ -10,7 +10,13 @@ declare var firebase: any;
 export class AuthService {
   error: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    // firebase.auth().subscribe(auth => {
+    //   if (!auth) {
+    //     this.router.navigateByUrl('/login');
+    //   }
+    // })
+  }
 
   signupUser(user: User) {
     return firebase.auth().createUserWithEmailAndPassword(user.email, user.password);

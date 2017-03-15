@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'rb-protected',
@@ -7,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProtectedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   ngOnInit() {
   }

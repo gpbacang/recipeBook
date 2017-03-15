@@ -64,6 +64,9 @@ export class SignupComponent implements OnInit {
         this.isEqualPassword.bind(this)
       ])]
     });
+    this.signupForm.valueChanges.subscribe(value => {
+      this.error = false;
+    });
   }
 
   isEmail(control: FormControl): {[s: string]: boolean} {
