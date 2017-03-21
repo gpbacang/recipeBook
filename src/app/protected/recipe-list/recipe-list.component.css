@@ -16,8 +16,43 @@ input:-webkit-autofill:active {
 .recipe-list-container {
   width: 100%;
   padding: 70px;
+  padding-top: 30px;
   box-sizing: border-box;
   display: flex; }
+
+.search-box {
+  width: 300px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 70px;
+  margin-left: 70px;
+  margin-top: 30px;
+  float: right;
+  border: 0.5px solid rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .search-box.active {
+    border: 1px solid rgba(0, 0, 0, 0.5) !important;
+    box-sizing: border-box;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  .search-box > i {
+    color: #FFC200;
+    padding: 5px;
+    box-sizing: border-box; }
+  .search-box > input {
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+    color: #4d4d4d;
+    font-weight: 100;
+    background: transparent;
+    border: none;
+    box-sizing: border-box; }
+    .search-box > input:focus {
+      outline: none; }
 
 .item-card {
   width: 320px;

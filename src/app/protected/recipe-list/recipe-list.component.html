@@ -1,3 +1,9 @@
+<!-- <div class="search-box" [style.border]="inFocus ? '1px solid black': '.5px solid rgba(0,0,0,0.3)'"> -->
+<div class="search-box" [class.active]="inFocus">
+  <i class="material-icons">search</i>
+  <input type="text" id="search" (focus)="focusFunction()" (focusout)="focusOutFunction()">
+  <!-- <button (click)="focusFunction()">test</button> -->
+</div>
 <div class="recipe-list-container">
   <div class="item-card" style="background: url('../../../assets/header.jpg') center / cover;">
     <div class="card-tint">
