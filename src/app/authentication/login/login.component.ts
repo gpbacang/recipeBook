@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthService } from '../../shared/auth.service';
 import { showError } from '../authentication.animations';
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   loginStatus = "";
   state: string = '';
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
     // firebase.auth.subscribe(auth => {
     //   console.log(auth);
     // });
@@ -28,13 +28,15 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     this.loginStatus = "loading";
+
     this.authService.loginUser(this.loginForm.value)
     .then(
       (success) => {
         // console.log(success);
         this.loginStatus = "authenticated";
         setTimeout(() => {
-          this.router.navigate(['home']);
+          console.log(this.authService.getUserInfo())
+          this.router.navigate(['recipes', this.authService.getUserInfo()]);
         }, 1000);
       }).catch(
         (err) => {

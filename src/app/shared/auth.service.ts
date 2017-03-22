@@ -10,13 +10,7 @@ declare var firebase: any;
 export class AuthService {
   error: any;
 
-  constructor(private router: Router) {
-    // firebase.auth().subscribe(auth => {
-    //   if (!auth) {
-    //     this.router.navigateByUrl('/login');
-    //   }
-    // })
-  }
+  constructor(private router: Router) {}
 
   signupUser(user: User) {
     return firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
@@ -36,6 +30,16 @@ export class AuthService {
       }
     });
     return subject.asObservable();
+  }
+
+  getUserInfo() {
+    var user = firebase.auth().currentUser;
+    var uid;
+
+    if (user != null) {
+      uid = user.uid
+    }
+    return uid;
   }
 
   passwordReset(user: User) {

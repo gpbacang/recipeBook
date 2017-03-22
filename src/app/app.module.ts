@@ -15,6 +15,8 @@ import { HeaderComponent } from './protected/header/header.component';
 import { RecipeListComponent } from './protected/recipe-list/recipe-list.component';
 import { authRouting } from './authentication/authentication.routes';
 import { PasswordResetComponent } from './authentication/password-reset/password-reset.component';
+import { protectedRouting } from './protected/protected.routes';
+import { EmptyRecipeListComponent } from './protected/empty-recipe-list/empty-recipe-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { PasswordResetComponent } from './authentication/password-reset/password
     AuthenticationComponent,
     HeaderComponent,
     RecipeListComponent,
-    PasswordResetComponent
+    PasswordResetComponent,
+    EmptyRecipeListComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { PasswordResetComponent } from './authentication/password-reset/password
     ReactiveFormsModule,
     HttpModule,
     routing,
-    authRouting
+    authRouting,
+    protectedRouting
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

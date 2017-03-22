@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthService } from '../shared/auth.service';
 
@@ -9,8 +9,11 @@ import { AuthService } from '../shared/auth.service';
   styleUrls: ['./protected.component.css']
 })
 export class ProtectedComponent implements OnInit {
+  // id: string;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
+    // this.id = authService.getUserInfo();
+    // console.log(this.id);
   }
 
   ngOnInit() {

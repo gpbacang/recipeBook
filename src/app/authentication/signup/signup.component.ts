@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
         console.log(success);
         this.signupStatus = "signedUp";
         setTimeout(() => {
-          this.router.navigate(['/home'])
+          this.router.navigate([''])
         }, 1000);
       }).catch(
         (err) => {
