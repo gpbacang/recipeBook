@@ -9,6 +9,7 @@ declare var firebase: any;
 @Injectable()
 export class AuthService {
   error: any;
+  // uid: any;
 
   constructor(private router: Router) {}
 
@@ -32,7 +33,7 @@ export class AuthService {
     return subject.asObservable();
   }
 
-  getUserInfo() {
+  getUserId() {
     var user = firebase.auth().currentUser;
     var uid;
 
@@ -40,6 +41,15 @@ export class AuthService {
       uid = user.uid
     }
     return uid;
+  }
+
+  saveUserData(user: User) {
+    firebase.database().ref('users/').set({
+      userid: this.getUserId(),
+      firstname: user.firstname,
+      lastname: user.lastname,
+      email: user.email
+    })
   }
 
   passwordReset(user: User) {

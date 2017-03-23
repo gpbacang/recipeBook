@@ -26,6 +26,7 @@ export class SignupComponent implements OnInit {
     this.authService.signupUser(this.signupForm.value)
     .then(
       (success) => {
+        this.authService.saveUserData(this.signupForm.value);
         console.log(success);
         this.signupStatus = "signedUp";
         setTimeout(() => {
@@ -54,6 +55,8 @@ export class SignupComponent implements OnInit {
   ngOnInit(): any {
     this.signupStatus = "initial";
     this.signupForm = this.fb.group({
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
       email: ['', Validators.compose([
         Validators.required,
         this.isEmail

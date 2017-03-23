@@ -2,6 +2,32 @@
   <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
     <div class="textfield">
       <input
+        type="text"
+        id="firstname"
+        class="textfield__input"
+        placeholder="First Name"
+        formControlName="firstname"
+        name="firstname">
+      <!-- <div class="error" *ngIf="signupForm.get('email').hasError('required') && signupForm.get('email').touched">Email is required.</div> -->
+      <div class="error" *ngIf="signupForm.controls.firstname.touched && signupForm.controls.firstname.hasError('required')">First name is required.</div>
+      <!-- <div class="error" *ngIf="signupForm.controls.email.hasError('noEmail') && !signupForm.controls.email.hasError('required')">Invalid email.</div> -->
+    </div>
+
+    <div class="textfield">
+      <input
+        type="text"
+        id="lastname"
+        class="textfield__input"
+        placeholder="Last Name"
+        formControlName="lastname"
+        name="lastname">
+      <!-- <div class="error" *ngIf="signupForm.get('email').hasError('required') && signupForm.get('email').touched">Email is required.</div> -->
+      <div class="error" *ngIf="signupForm.controls.lastname.touched && signupForm.controls.lastname.hasError('required')">Last name is required.</div>
+      <!-- <div class="error" *ngIf="signupForm.controls.email.hasError('noEmail') && !signupForm.controls.email.hasError('required')">Invalid email.</div> -->
+    </div>
+
+    <div class="textfield">
+      <input
         type="email"
         id="email"
         class="textfield__input"
